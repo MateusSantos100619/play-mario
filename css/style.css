@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-board {
+  width: 100%; /*largura*/
+  height: 500px; /*altura*/
+  border-bottom: 15px solid green; /*borda inferior da tela*/
+  margin: 0 auto; /*significa que você dará margens automáticas na esquerda e na direita para centralizar o bloco horizontalmente na tela.*/
+  position:relative; /* pras imagens ficarem dentro da delimitação do quadro*/
+  overflow:hidden; /* faz com que recortemos o conteúdo e escondemos os que não estão dentro da borda*/
+  background: linear-gradient(#87CEEB, #E0F6FF);/*cor do céu*/
+}
+
+.pipe {
+  position: absolute; /* pra nenhuma imagem atrapalhar o posicionamento da outra*/
+  bottom: 0; /* responsável pelo posicionamento na tela, pra levar o conteúdo pra parte inferior*/
+  width: 80px; 
+  animation: pipe-animation 1.5s infinite linear;/*Aqui é a velocidade do TUBO; a animação fez com que o cano tivesse o mesmo movimento linear na tela*/
+}
+
+.mario {
+  width: 150px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.jump {
+  animation: jump 500ms ease-out;/* quando as coisas estão se movendo*/ 
+}
+
+.clouds {
+  position: absolute;
+  width: 550px;
+  animation: clouds-animation 20s infinite linear;
+  /* pras nuvens irem em modo linear bem devagar se movimentando de acordo com o jogo*/
+}
+
+
+
+@keyframes pipe-animation { 
+  from {
+    right: -80px; /* ritght pra animação começar do lado esquerdo da tela*/
+  }
+
+  to {
+    right: 100%; /* onde vai terminar a animação*/
+  }
+}
+
+/*@Keyframe faz com que o objeto em si se mova e o software irá calcular e interpolar seu movimento!!!*/
+
+@keyframes jump {
+/*alturas de quanto o Mário vai alcançar*/
+  0% {
+    bottom: 0;         /*Início*/
+  }
+   40% {
+    bottom: 180px;
+   }
+  50% {
+    bottom: 180px;     /*Meio*/
+  }
+
+  60% {
+    bottom: 180px;
+  }
+
+  100% {
+    bottom: 0;        /*Fim*/
+  }
+  
+}
+
+@keyframes clouds-animation {
+    from {
+    right: -550px; /* pra elas começarem da direita pra esquerda*/
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+/*01/11/2023 - parei no min 15:40seg, preciso descobrir qual a tecla que preciso apertar pra indicar o pulo.*/
